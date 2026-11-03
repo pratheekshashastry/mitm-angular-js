@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Angular project</title>
+     <script src="node_modules/angular/angular.js"></script>
+     <script src="app.js"></script>
+
+</head>
+<body ng-controller="MyController">
+    <h1>student details</h1>
+    <h2>hello {{name}}</h2>
+    <h3>update the user name</h3>
+    <input type="text" ng-model="name">
+    <h4>update the age</h4>
+    <input type="number"ng-model="age">
+    <h3>update the department{{department}}</h3>
+    <input type="text"ng-model="department">
+    <h4>update the semester{{semester}}</h4>
+    <input type="text"ng-model="semester">
+    <p>update name:{{name}}</p>
+    <p>update age:{{age}}</p>
+    <p>update deparment:{{department}}</p>
+    <p>update semester:{{semester}}</p>
+
+</body>
+</html> 
