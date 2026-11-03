@@ -1,4 +1,5 @@
- var app = angular.module('myApp',[]);
- app.controller('mycontroller',function($scope){
-    $scope.name = "pratheeksha";
-})
+ var app = angular.module('myApp', []);
+
+app.controller('MyController', function($scope) {
+    $scope.name = "Pratheeksha";
+});
