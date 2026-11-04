@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="app.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f8;
+            margin: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            max-width: 650px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            color: #234567;
+        }
+
+        input {
+            display: block;
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 8px 5px 8px 0;
+            background-color: #234567;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .pass {
+            color: green;
+            font-weight: bold;
+        }
+
+        .fail {
+            color: red;
+            font-weight: bold;
+        }
+
+        li {
+            margin: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container" ng-controller="CollegeController">
+
+    <!-- Header -->
+    <h1>{{ collegeName }}</h1>
+    <h2>Student Management Mini Application</h2>
+
+    <div ng-controller="StudentController">
+
+        <!-- Student Form -->
+        <h2>Student Details Form</h2>
+
+        <label>Student Name:</label>
+        <input type="text"
+               ng-model="studentName"
+               placeholder="Enter student name">
+
+        <label>Department:</label>
+        <input type="text"
+               ng-model="department"
+               placeholder="Enter department">
+
+        <label>Semester:</label>
+        <input type="number"
+               ng-model="semester"
+               placeholder="Enter semester">
+
+        <label>Examination Marks:</label>
+        <input type="number"
+               ng-model="marks"
+               placeholder="Enter marks"
+               min="0"
+               max="100">
+
+        <!-- Display Entered Details -->
+        <h2>Entered Information</h2>
+
+        <p>Name: {{ studentName }}</p>
+        <p>Department: {{ department }}</p>
+        <p>Semester: {{ semester }}</p>
+
+        <!-- Actions -->
+        <button ng-click="addStudent()">
+            Add Student
+        </button>
+
+        <button ng-click="showDetails = !showDetails">
+            Show / Hide Details
+        </button>
+
+        <!-- Student List -->
+        <h2>Student List</h2>
+
+        <ul>
+            <li ng-repeat="student in students">
+                {{ student }}
+            </li>
+        </ul>
+
+        <!-- Show / Hide Details -->
+        <div ng-show="showDetails">
+
+            <h2>Student Details</h2>
+
+            <p>Name: {{ studentName }}</p>
+            <p>Department: {{ department }}</p>
+            <p>Semester: {{ semester }}</p>
+
+        </div>
+
+        <!-- Examination Result -->
+        <h2>Examination Result</h2>
+
+        <div ng-if="marks !== undefined && marks !== null && marks !== ''">
+
+            <p ng-if="marks >= 40"
+               ng-class="{'pass': marks >= 40}">
+                Pass
+            </p>
+
+            <p ng-if="marks < 40"
+               ng-class="{'fail': marks < 40}">
+                Needs Improvement
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
